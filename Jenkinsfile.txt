@@ -1,0 +1,30 @@
+pipeline
+{
+  tools
+   {
+	git 'g'
+	jdk 'j'
+	maven 'm2'
+   }
+  agent none
+  stages
+{
+  stage('validate')
+{
+sh 'mvn validate'
+}
+stage('compile')
+{
+sh 'mvn compile'
+}
+stage('test')
+{
+sh 'mvn test'
+}
+stage('package')
+{
+sh 'mvn package'
+}
+}
+}
+
